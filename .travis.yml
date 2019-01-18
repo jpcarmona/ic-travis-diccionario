@@ -8,5 +8,4 @@ branches:
   - master
 
 
-script: 
-	- OUTPUT=$(cat doc/*.md | aspell list -d es ); if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
+script: OUTPUT=$(cat doc/*.md | aspell list -d es ); if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
