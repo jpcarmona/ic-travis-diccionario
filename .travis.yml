@@ -1,5 +1,12 @@
-deploy:
-  provider: script
-  script: OUTPUT=$(cat doc/*.md | aspell list -d es ); if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
-  on:
-    branch: master
+language: bash
+
+before_install:
+  - sudo apt-get install aspell-es 
+
+branches:
+  only:
+  - master
+
+
+script: 
+	- OUTPUT=$(cat doc/*.md | aspell list -d es ); if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
